@@ -39,6 +39,46 @@ class HomePage extends StatelessWidget {
               child: Text('About the app'))
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            ),
+            ListTile(
+              title: Text('Keranjang'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/keranjang');
+              },
+            ),
+            ListTile(
+              title: Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/tentang_aplikasi');
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           Expanded(
