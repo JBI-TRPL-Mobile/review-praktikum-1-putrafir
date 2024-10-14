@@ -19,7 +19,7 @@ class DetailProduk extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network('https://via.placeholder.com/150'),
+            Image.asset(product['gambar']!),
             SizedBox(
               height: 16.0,
             ),
