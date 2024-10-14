@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template_project/Model/Cart.dart';
 
 class DetailProduk extends StatelessWidget {
   const DetailProduk({super.key});
@@ -29,7 +30,16 @@ class DetailProduk extends StatelessWidget {
             ),
             Text(product['deskripsi']!),
             Spacer(),
-            ElevatedButton(onPressed: () {car}, child: Text('Tambah ke keranjang'))
+            Center(
+              child: ElevatedButton(
+                  onPressed: () {
+                    cart.addToCart(product);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            '${product['nama']} berhasil di tambahkan ke keranjang')));
+                  },
+                  child: Text('Tambah ke keranjang')),
+            )
           ],
         ),
       ),

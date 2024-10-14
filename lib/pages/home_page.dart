@@ -12,7 +12,11 @@ class HomePage extends StatelessWidget {
       'harga': 'Rp 10.000',
       'deskripsi': 'ini adalah roti'
     },
-    {'nama': 'Roti Keju', 'harga': 'Rp 10.000', 'deskripsi': 'ini adalah roti'},
+    {
+      'nama': 'Roti Keju',
+      'harga': 'Rp 10.000',
+      'deskripsi': 'ini adalah roti',
+    },
   ];
   // const HomePage({super.key});
 
@@ -22,6 +26,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home Pages'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/keranjang');
+              },
+              icon: Icon(Icons.shopping_cart))
+        ],
       ),
       body: GridView.count(
         crossAxisCount: 1,
