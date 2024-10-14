@@ -27,56 +27,77 @@ class HomePage extends StatelessWidget {
         title: Text('Home Pages'),
         backgroundColor: Colors.blue,
         actions: [
-          IconButton(
+          // IconButton(
+          //     onPressed: () {
+          //       Navigator.pushNamed(context, '/keranjang');
+          //     },
+          //     icon: Icon(Icons.shopping_cart)),
+          TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/tentang_aplikasi');
+              },
+              child: Text('About the app'))
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 1,
+              childAspectRatio: 3,
+              padding: EdgeInsets.all(8.0),
+              children: products.map((product) {
+                return Card(
+                  elevation: 4.0,
+                  margin: EdgeInsets.symmetric(vertical: 8.0),
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          product['nama']!,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Text(
+                          product['harga']!,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(height: 8),
+                        Flexible(
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/detail',
+                                    arguments: product);
+                              },
+                              child: Text('Detail'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: ElevatedButton.icon(
               onPressed: () {
                 Navigator.pushNamed(context, '/keranjang');
               },
-              icon: Icon(Icons.shopping_cart))
-        ],
-      ),
-      body: GridView.count(
-        crossAxisCount: 1,
-        childAspectRatio: 3,
-        padding: EdgeInsets.all(8.0),
-        children: products.map((product) {
-          return Card(
-            elevation: 4.0,
-            margin: EdgeInsets.symmetric(vertical: 8.0),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product['nama']!,
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  Text(
-                    product['harga']!,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  SizedBox(height: 8),
-                  Flexible(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/detail',
-                              arguments: product);
-                        },
-                        child: Text('Detail'),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              label: Text('Keranjang'),
+              icon: Icon(Icons.shopping_cart),
             ),
-          );
-        }).toList(),
+          )
+        ],
       ),
     );
   }
