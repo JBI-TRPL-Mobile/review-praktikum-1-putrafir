@@ -26,12 +26,32 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     product['nama']!,
                     style: TextStyle(fontSize: 18),
                   ),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Text(
+                    product['harga']!,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: 8),
+                  Flexible(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/detail');
+                        },
+                        child: Text('Detail'),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
