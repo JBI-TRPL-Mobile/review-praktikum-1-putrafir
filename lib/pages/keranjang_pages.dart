@@ -12,6 +12,7 @@ class _KeranjangPagesState extends State<KeranjangPages> {
   @override
   Widget build(BuildContext context) {
     final items = cart.getItems();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Keranjang'),
@@ -28,8 +29,9 @@ class _KeranjangPagesState extends State<KeranjangPages> {
               subtitle: Text(item['harga']!),
               trailing: IconButton(
                   onPressed: () {
-                    items.removeAt(index);
-                    (context as Element).reassemble();
+                    setState(() {
+                      items.removeAt(index);
+                    });
                   },
                   icon: Icon(Icons.delete)),
             ),
