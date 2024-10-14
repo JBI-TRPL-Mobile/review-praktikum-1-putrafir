@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final List<Map<String, String>> products = [
-    {'nama': 'Roti Tawar', 'harga': 'Rp 10.000'},
-    {'nama': 'Roti COklat', 'harga': 'Rp 10.000'},
-    {'nama': 'Roti Keju', 'harga': 'Rp 10.000'},
+    {
+      'nama': 'Roti Tawar',
+      'harga': 'Rp 10.000',
+      'deskripsi': 'ini adalah roti'
+    },
+    {
+      'nama': 'Roti COklat',
+      'harga': 'Rp 10.000',
+      'deskripsi': 'ini adalah roti'
+    },
+    {'nama': 'Roti Keju', 'harga': 'Rp 10.000', 'deskripsi': 'ini adalah roti'},
   ];
   // const HomePage({super.key});
 
@@ -46,7 +54,8 @@ class HomePage extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/detail');
+                          Navigator.pushNamed(context, '/detail',
+                              arguments: product);
                         },
                         child: Text('Detail'),
                       ),
