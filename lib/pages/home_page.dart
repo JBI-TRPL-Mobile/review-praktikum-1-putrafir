@@ -5,17 +5,20 @@ class HomePage extends StatelessWidget {
     {
       'nama': 'Roti Tawar',
       'harga': 'Rp 10.000',
-      'deskripsi': 'ini adalah roti'
+      'deskripsi': 'ini adalah roti',
+      'gambar': 'assets/roti_coklat.jpg'
     },
     {
       'nama': 'Roti COklat',
       'harga': 'Rp 10.000',
-      'deskripsi': 'ini adalah roti'
+      'deskripsi': 'ini adalah roti',
+      'gambar': 'assets/roti_coklat.jpg'
     },
     {
       'nama': 'Roti Keju',
       'harga': 'Rp 10.000',
       'deskripsi': 'ini adalah roti',
+      'gambar': 'assets/roti_keju.webp'
     },
   ];
   // const HomePage({super.key});
@@ -92,20 +95,33 @@ class HomePage extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 8.0),
                   child: Padding(
                     padding: EdgeInsets.all(16.0),
-                    child: Column(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          product['nama']!,
-                          style: TextStyle(fontSize: 18),
+                        Image.asset(
+                          product['gambar']!,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
                         ),
                         SizedBox(
-                          height: 8.0,
+                          width: 10,
                         ),
-                        Text(
-                          product['harga']!,
-                          style: TextStyle(fontSize: 16),
+                        Column(
+                          children: [
+                            Text(
+                              product['nama']!,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 8.0,
+                            ),
+                            Text(
+                              product['harga']!,
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
                         ),
                         SizedBox(height: 8),
                         Flexible(

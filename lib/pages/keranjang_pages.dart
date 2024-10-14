@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:template_project/Model/Cart.dart';
 
-class KeranjangPages extends StatelessWidget {
+class KeranjangPages extends StatefulWidget {
   const KeranjangPages({super.key});
 
+  @override
+  State<KeranjangPages> createState() => _KeranjangPagesState();
+}
+
+class _KeranjangPagesState extends State<KeranjangPages> {
   @override
   Widget build(BuildContext context) {
     final items = cart.getItems();
@@ -16,6 +21,7 @@ class KeranjangPages extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = items[index];
           return Card(
+            elevation: 4.0,
             margin: EdgeInsets.all(10.0),
             child: ListTile(
               title: Text(item['nama']!),
